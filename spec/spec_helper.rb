@@ -11,7 +11,9 @@ require 'acts-as-taggable-array-on'
 
 ActiveRecord::Migration.verbose = false
 
-class User < ActiveRecord::Base; end
+class User < ActiveRecord::Base
+  default_scope { where(updated_at: nil) }
+end
 
 RSpec.configure do |config|
   config.before(:all) do
